@@ -150,19 +150,6 @@ The process includes:
 
 ---
 
-## Results
-
-The notebook produces:
-
-- BERT similarity scores
-- FastText similarity scores
-- TF-IDF similarity scores
-- Weighted fitness scores
-- RankNet predictions
-- Final candidate rankings
-
----
-
 ## Future Improvements
 
 Potential enhancements include:
