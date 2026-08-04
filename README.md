@@ -8,11 +8,11 @@ This project builds a candidate ranking pipeline for identifying talent that bes
 
 1. Exploratory Data Analysis (EDA)
 
-Examine dataset statistics.
+- Examine dataset statistics.
 
-Analyze connection counts.
+- Analyze connection counts.
 
-Visualize locations and connections using word clouds.
+- Visualize locations and connections using word clouds.
 
 2. Semantic Matching (BERT)
 
