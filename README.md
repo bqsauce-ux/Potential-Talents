@@ -1,83 +1,194 @@
-# Potential Talents
+# Potential Talents: Candidate Ranking Using NLP and RankNet
 
-## Overview
+## Project Overview
 
-This project builds a candidate ranking pipeline for identifying talent that best matches Human Resources roles. Multiple NLP similarity techniques are combined into a weighted fitness score, which is then used to train a RankNet learning-to-rank model.
+This project develops an intelligent candidate ranking system for Human Resources recruitment. Instead of relying solely on keyword matching, the notebook combines multiple Natural Language Processing (NLP) techniques with a learning-to-rank neural network to identify candidates whose job titles best match HR-related positions.
 
-## Workflow
+---
 
-1. Exploratory Data Analysis (EDA)
+## Objective
 
-- Examine dataset statistics.
+The goal of this project is to:
 
-- Analyze connection counts.
+- Rank candidates based on semantic similarity to Human Resources roles.
+- Compare multiple NLP approaches for measuring candidate relevance.
+- Generate a weighted fitness score using several similarity metrics.
+- Train a RankNet model to improve candidate ordering.
+- Produce a final ranked list of candidates.
 
-- Visualize locations and connections using word clouds.
+---
 
-2. Semantic Matching (BERT)
+## Dataset
 
-- Uses the all-MiniLM-L6-v2 SentenceTransformer.
+The dataset contains candidate information including:
 
-- Compares job titles against:
+- Candidate ID
+- Job Title
+- Current Location
+- Number of Connections
+- Existing HR Fit Score
 
-- Aspiring Human Resources
+---
 
-- Seeking Human Resources
+## Exploratory Data Analysis (EDA)
 
-- Stores the highest cosine similarity as bert_score.
+The notebook performs several exploratory analyses:
 
-3. Keyword Matching
+- Dataset inspection
+- Missing value detection
+- Descriptive statistics
+- Candidate location analysis
+- Distribution of LinkedIn connections
+- Word clouds of locations
+- Word clouds of connection counts
 
-- Traditional keyword-based comparison of job titles.
+These visualizations help understand the overall candidate pool before feature engineering.
 
-4. FastText Similarity
+---
 
-- Trains a FastText model on job titles.
+## Feature Engineering
 
-- Generates sentence embeddings by averaging word vectors.
+Several similarity features are generated for every candidate.
 
-- Computes cosine similarity with the HR target phrase.
+### 1. BERT Semantic Similarity
 
-- Saves results as fasttext_score.
+- Uses Sentence Transformers (`all-MiniLM-L6-v2`)
+- Encodes candidate job titles
+- Encodes HR target phrases
+- Computes cosine similarity
+- Stores the highest similarity as **bert_score**
 
-5. TF-IDF Similarity
+---
 
-- Builds TF-IDF vectors for job titles.
+### 2. Keyword Matching
 
-- Measures cosine similarity to the HR target phrase.
+A simple keyword-based approach is implemented to determine whether candidate job titles contain Human Resources related terms.
 
-- Stores results as tfidf_score.
+---
 
-6. Weighted Fitness Score
+### 3. FastText Embeddings
 
-- Combines BERT, TF-IDF, FastText, and HR fitness metrics into asingle overall candidate fitness score.
+The notebook trains a FastText model on candidate job titles.
 
-7. Learning to Rank
+For each candidate:
 
-- Creates pairwise candidate comparisons.
+- Words are converted into embeddings
+- Word embeddings are averaged
+- Cosine similarity is calculated against the HR target
+- Results are stored as **fasttext_score**
 
-- Implements a three-layer RankNet neural network in PyTorch.
+---
 
-- Trains using binary cross-entropy loss and the Adam optimizer.
+### 4. TF-IDF Similarity
 
-- Produces a final ranking score for each candidate.
+TF-IDF vectors are generated for all job titles.
 
-Technologies
+The notebook:
+
+- Vectorizes text
+- Calculates cosine similarity
+- Generates a **tfidf_score** for every candidate
+
+---
+
+## Combined Fitness Score
+
+Instead of relying on one NLP technique, multiple similarity scores are combined into a weighted score.
+
+The weighted score includes:
+
+- BERT similarity
+- TF-IDF similarity
+- FastText similarity
+- Existing HR fitness score
+
+This provides a more robust estimate of candidate relevance.
+
+---
+
+## Learning to Rank (RankNet)
+
+After feature engineering, the notebook trains a RankNet neural network.
+
+The process includes:
+
+- Creating pairwise candidate comparisons
+- Building a three-layer neural network
+- Training with Binary Cross Entropy Loss
+- Optimizing with Adam
+- Predicting ranking scores
+- Sorting candidates from best to worst
+
+---
+
+## Technologies Used
 
 - Python
-
-- pandas
-
+- Pandas
 - NumPy
-
 - Sentence Transformers
-
-- FastText (Gensim)
-
-- scikit-learn
-
+- Gensim FastText
+- Scikit-learn
 - PyTorch
+- Matplotlib
+- WordCloud
 
-## Output
+---
 
-The notebook generates similarity scores from multiple NLP methods, combines them into a weighted fitness score, trains a RankNet model, and outputs candidates ranked from most to least suitable for Human Resource positions.
+## Project Workflow
+
+1. Load candidate dataset
+2. Perform exploratory data analysis
+3. Generate semantic similarity features
+4. Compute TF-IDF similarity
+5. Train FastText embeddings
+6. Calculate weighted fitness scores
+7. Generate pairwise ranking data
+8. Train RankNet
+9. Rank candidates
+10. Produce final recommendations
+
+---
+
+## Results
+
+The notebook produces:
+
+- BERT similarity scores
+- FastText similarity scores
+- TF-IDF similarity scores
+- Weighted fitness scores
+- RankNet predictions
+- Final candidate rankings
+
+---
+
+## Future Improvements
+
+Potential enhancements include:
+
+- Fine-tuning BERT models
+- Incorporating resume text instead of job titles alone
+- Adding years of experience
+- Including education and skills
+- Experimenting with LambdaRank or LambdaMART
+- Deploying the ranking model as a web application
+
+---
+
+## Repository Structure
+
+```
+Potential-Talents/
+│
+├── Potential Talents.ipynb
+├── README.md
+├── requirements.txt
+└── data/
+```
+
+---
+
+## Author
+
+Machine Learning Candidate Ranking Project using NLP and Learning-to-Rank techniques.
