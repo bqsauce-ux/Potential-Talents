@@ -150,16 +150,16 @@ The process includes:
 
 ---
 
-## Future Improvements
+## Results
 
-Potential enhancements include:
+The notebook produces:
 
-- Fine-tuning BERT models
-- Incorporating resume text instead of job titles alone
-- Adding years of experience
-- Including education and skills
-- Experimenting with LambdaRank or LambdaMART
-- Deploying the ranking model as a web application
+- BERT similarity scores
+- FastText similarity scores
+- TF-IDF similarity scores
+- Weighted fitness scores
+- RankNet predictions
+- Final candidate rankings
 
 ---
 
