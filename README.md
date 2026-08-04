@@ -16,51 +16,51 @@ This project builds a candidate ranking pipeline for identifying talent that bes
 
 2. Semantic Matching (BERT)
 
-Uses the all-MiniLM-L6-v2 SentenceTransformer.
+- Uses the all-MiniLM-L6-v2 SentenceTransformer.
 
-Compares job titles against:
+- Compares job titles against:
 
-Aspiring Human Resources
+- Aspiring Human Resources
 
-Seeking Human Resources
+- Seeking Human Resources
 
-Stores the highest cosine similarity as bert_score.
+- Stores the highest cosine similarity as bert_score.
 
 3. Keyword Matching
 
-Traditional keyword-based comparison of job titles.
+- Traditional keyword-based comparison of job titles.
 
 4. FastText Similarity
 
-Trains a FastText model on job titles.
+- Trains a FastText model on job titles.
 
-Generates sentence embeddings by averaging word vectors.
+- Generates sentence embeddings by averaging word vectors.
 
-Computes cosine similarity with the HR target phrase.
+- Computes cosine similarity with the HR target phrase.
 
-Saves results as fasttext_score.
+- Saves results as fasttext_score.
 
 5. TF-IDF Similarity
 
-Builds TF-IDF vectors for job titles.
+- Builds TF-IDF vectors for job titles.
 
-Measures cosine similarity to the HR target phrase.
+- Measures cosine similarity to the HR target phrase.
 
-Stores results as tfidf_score.
+- Stores results as tfidf_score.
 
 6. Weighted Fitness Score
 
-Combines BERT, TF-IDF, FastText, and HR fitness metrics into asingle overall candidate fitness score.
+- Combines BERT, TF-IDF, FastText, and HR fitness metrics into asingle overall candidate fitness score.
 
 7. Learning to Rank
 
-Creates pairwise candidate comparisons.
+- Creates pairwise candidate comparisons.
 
-Implements a three-layer RankNet neural network in PyTorch.
+- Implements a three-layer RankNet neural network in PyTorch.
 
-Trains using binary cross-entropy loss and the Adam optimizer.
+- Trains using binary cross-entropy loss and the Adam optimizer.
 
-Produces a final ranking score for each candidate.
+- Produces a final ranking score for each candidate.
 
 Technologies
 
