@@ -183,8 +183,6 @@ Potential-Talents/
 │
 ├── Potential Talents.ipynb
 ├── README.md
-├── requirements.txt
-└── data/
 ```
 
 ---
