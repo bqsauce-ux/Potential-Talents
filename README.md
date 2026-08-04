@@ -80,4 +80,4 @@ Technologies
 
 ## Output
 
-The notebook generates similarity scores from multiple NLP methods, combines them into a weighted fitness score, trains a RankNet model, and outputs candidates ranked from most to least suitable for Human
+The notebook generates similarity scores from multiple NLP methods, combines them into a weighted fitness score, trains a RankNet model, and outputs candidates ranked from most to least suitable for Human Resource positions.
