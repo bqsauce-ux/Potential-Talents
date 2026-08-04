@@ -1,12 +1,12 @@
-# Potential-Talents
+# Potential Talents
 
-Overview
+## Overview
 
-This project builds a candidate ranking pipeline for identifying talentthat best matches Human Resources roles. Multiple NLP similaritytechniques are combined into a weighted fitness score, which is thenused to train a RankNet learning-to-rank model.
+This project builds a candidate ranking pipeline for identifying talent that best matches Human Resources roles. Multiple NLP similarity techniques are combined into a weighted fitness score, which is then used to train a RankNet learning-to-rank model.
 
-Workflow
+## Workflow
 
-Exploratory Data Analysis (EDA)
+1. Exploratory Data Analysis (EDA)
 
 Examine dataset statistics.
 
@@ -14,7 +14,7 @@ Analyze connection counts.
 
 Visualize locations and connections using word clouds.
 
-Semantic Matching (BERT)
+2. Semantic Matching (BERT)
 
 Uses the all-MiniLM-L6-v2 SentenceTransformer.
 
@@ -26,11 +26,11 @@ Seeking Human Resources
 
 Stores the highest cosine similarity as bert_score.
 
-Keyword Matching
+3. Keyword Matching
 
 Traditional keyword-based comparison of job titles.
 
-FastText Similarity
+4. FastText Similarity
 
 Trains a FastText model on job titles.
 
@@ -40,7 +40,7 @@ Computes cosine similarity with the HR target phrase.
 
 Saves results as fasttext_score.
 
-TF-IDF Similarity
+5. TF-IDF Similarity
 
 Builds TF-IDF vectors for job titles.
 
@@ -48,11 +48,11 @@ Measures cosine similarity to the HR target phrase.
 
 Stores results as tfidf_score.
 
-Weighted Fitness Score
+6. Weighted Fitness Score
 
 Combines BERT, TF-IDF, FastText, and HR fitness metrics into asingle overall candidate fitness score.
 
-Learning to Rank
+7. Learning to Rank
 
 Creates pairwise candidate comparisons.
 
